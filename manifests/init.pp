@@ -45,14 +45,16 @@
 class trace9 {
 
 file { 
- '/home/vagrant/scripts':
+ '/usr/lib64/nagios/plugins/':
   ensure => 'directory',
-  source => 'puppet:///modules/ycsb/scripts',
+  source => 'puppet:///modules/trace9/nagios-plugins/plugins',
   recurse => 'remote',
-  path => '/home/vagrant/YCSB/scripts',
-  owner => 'vagrant',
-  group => 'vagrant',
-  mode  => '0744', # Use 0700 if it is sensitive
+  path => '/usr/lib64/nagios/plugins/',
+  owner => 'icinga',
+  group => 'icinga',
+  mode  => '0755', # Use 0700 if it is sensitive
 }
+
+include trace9::test
 
 }
