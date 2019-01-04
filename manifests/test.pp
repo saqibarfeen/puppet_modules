@@ -10,5 +10,6 @@ class trace9::test{
    }
 
 
-	notify{'Hello Muhammad':}
+	notify{'Hello Muhammad':
+	'message' => $role}
 }

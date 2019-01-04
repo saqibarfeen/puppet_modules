@@ -1,3 +1,0 @@
-[submodule "nagios-plugins"]
-	path = files/nagios-plugins
-	url = https://github.com/cloud9network/nagios-plugins.git

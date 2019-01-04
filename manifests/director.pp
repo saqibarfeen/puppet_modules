@@ -1,5 +1,7 @@
-node 'node02'{
 
+
+
+class trace9::director{
 #director
 package { 'git': }
 include ::mysql::server

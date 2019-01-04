@@ -44,6 +44,15 @@
 #
 class trace9 {
 
+if("director" in $role){
+	include trace9::director
+}
+if("master" in $role){
+	include trace9::director
+}
+if("satellite" in $role){
+	include trace9::director
+}
 file { 
  '/usr/lib64/nagios/plugins/':
   ensure => 'directory',
@@ -56,5 +65,6 @@ file {
 }
 
 include trace9::test
+
 
 }
