@@ -42,29 +42,25 @@
 #
 # Copyright 2019 Your name here, unless otherwise noted.
 #
-class trace9 {
-
+class trace9(
+  Optional[Variant[String, Array[String]]] $protected_customvars = ['*pw*', '*pass*', 'community'],
+  Optional[String]               $ido_host             = undef,
+  Integer[1,65535]               $ido_port             = 3306,
+  Optional[String]               $ido_db_name          = undef,
+  Optional[String]               $ido_db_username      = undef,
+  Optional[String]               $ido_db_password      = undef,
+  Optional[String]               $ido_db_charset       = undef,
+  Optional[Hash]                           $commandtransports    = undef,
+) {
 if("director" in $role){
 	include trace9::director
 }
 if("master" in $role){
-	include trace9::director
+	include trace9::master
+	include trace9::inhouse_plugins
 }
 if("satellite" in $role){
-	include trace9::director
+	include trace9::satellite
+	include trace9::inhouse_plugins
 }
-file { 
- '/usr/lib64/nagios/plugins/':
-  ensure => 'directory',
-  source => 'puppet:///modules/trace9/nagios-plugins/plugins',
-  recurse => 'remote',
-  path => '/usr/lib64/nagios/plugins/',
-  owner => 'icinga',
-  group => 'icinga',
-  mode  => '0755', # Use 0700 if it is sensitive
-}
-
-include trace9::test
-
-
 }

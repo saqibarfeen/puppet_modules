@@ -1,4 +1,6 @@
-node 'hassan1' {
+
+class trace9::satellite{
+
 $master_cert = 'master'
 $master_ip   = 'master'
 

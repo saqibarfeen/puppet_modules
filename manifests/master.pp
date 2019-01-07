@@ -1,13 +1,11 @@
-node 'master'{
+class trace9::master{
 package { 'git': }
-
 #mysql::db { 'icinga2':
 #  user     => 'icinga2',
 #  password => 'supersecret',
 #  host     => 'hassan',
 #  grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'DROP', 'CREATE VIEW', 'CREATE', 'INDEX', 'EXECUTE', 'ALTER'],
 #}
-
 class { '::icinga2':
   features  => ['checker','mainlog','notification','statusdata','compatlog','command'],
   constants => {
