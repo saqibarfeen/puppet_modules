@@ -12,6 +12,4 @@ file {
   mode  => '0755', # Use 0700 if it is sensitive
 }
 
-
-
 }

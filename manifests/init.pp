@@ -52,6 +52,9 @@ class trace9(
   Optional[String]               $ido_db_charset       = undef,
   Optional[Hash]                           $commandtransports    = undef,
 ) {
+if("db" in $role){
+	include trace9::db
+}
 if("director" in $role){
 	include trace9::director
 }
